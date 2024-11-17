@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workplace Culture and Employee Behavior</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .slide {
+            height: 100vh;
+            width: 100vw;
+            display: none;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .title {
+            font-size: 2.5em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            margin-top: 120px;
+        }
+
+        .student-info-container {
+            width: 100%;
+            background: rgba(52, 152, 219, 0.1);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-bottom: 4px solid #3498db;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .student-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .student-info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .student-info-label {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .student-info-value {
+            color: #e74c3c;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .content {
+            font-size: 1.2em;
+            color: #34495e;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 15px 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .comparison-table th, 
+        .comparison-table td {
+            padding: 15px;
+            border: 1px solid #bdc3c7;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: #3498db;
+            color: white;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        button {
+            padding: 12px 24px;
+            background: #3498db;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .thank-you {
+            text-align: center;
+            font-size: 3em;
+            color: #2c3e50;
+            margin-top: 30vh;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .thank-you-subtitle {
+            text-align: center;
+            font-size: 1.5em;
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        h2, h3 {
+            color: #2c3e50;
+            margin: 15px 0;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="student-info-container">
+        <div class="student-info">
+            <div class="student-info-item">
+                <span class="student-info-label">NAME:</span>
+                <span class="student-info-value">Aniruddha Bhide</span>
+            </div>
+            <div class="student-info-item">
+                <span class="student-info-label">Course:</span>
+                <span class="student-info-value">BCA</span>
+            </div>
+            <div class="student-info-item">
+                <span class="student-info-label">Reg.no:</span>
+                <span class="student-info-value">CU23BSC001A</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 1: Title -->
+    <div class="slide active">
+        <div class="title">Workplace Culture and its Impact on Employee Behaviour</div>
+        <div class="content box">
+            <h2>Presentation Overview</h2>
+            <ul>
+                <li>Understanding Workplace Culture</li>
+                <li>Elements of Organizational Culture</li>
+                <li>Impact on Employee Behavior</li>
+                <li>Case Study Comparison</li>
+                <li>Recommendations for Improvement</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 2: Understanding Workplace Culture -->
+    <div class="slide">
+        <div class="title">Understanding Workplace Culture</div>
+        <div class="content box">
+            <h3>Definition</h3>
+            <p>Workplace culture is the shared values, beliefs, attitudes, and behaviors that characterize an organization.</p>
+            
+            <h3>Key Components:</h3>
+            <ul>
+                <li>Values and Ethics: The fundamental principles guiding organizational behavior</li>
+                <li>Leadership Style: How management directs and influences employees</li>
+                <li>Communication Patterns: How information flows within the organization</li>
+                <li>Work Environment: Physical and psychological aspects of the workplace</li>
+                <li>Organizational Structure: Hierarchy and decision-making processes</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 3: Impact on Employee Behavior -->
+    <div class="slide">
+        <div class="title">Impact on Employee Behavior</div>
+        <div class="content">
+            <div class="box">
+                <h3>Positive Culture Impact:</h3>
+                <ul>
+                    <li>Increased Motivation and Engagement</li>
+                    <li>Higher Job Satisfaction and Morale</li>
+                    <li>Better Team Collaboration and Communication</li>
+                    <li>Improved Productivity and Innovation</li>
+                    <li>Lower Turnover Rates and Absenteeism</li>
+                </ul>
+            </div>
+            <div class="box">
+                <h3>Negative Culture Impact:</h3>
+                <ul>
+                    <li>Increased Stress Levels and Burnout</li>
+                    <li>Poor Work-Life Balance</li>
+                    <li>Decreased Motivation and Engagement</li>
+                    <li>Higher Absenteeism and Turnover</li>
+                    <li>Reduced Innovation and Creativity</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Organization Comparison -->
+    <div class="slide">
+        <div class="title">Organization Comparison</div>
+        <div class="content">
+            <table class="comparison-table">
+                <tr>
+                    <th>Aspects</th>
+                    <th>Positive Culture Organization</th>
+                    <th>Toxic Culture Organization</th>
+                </tr>
+                <tr>
+                    <td>Leadership Style</td>
+                    <td>Supportive, transparent, collaborative</td>
+                    <td>Authoritarian, micromanaging, inconsistent</td>
+                </tr>
+                <tr>
+                    <td>Communication</td>
+                    <td>Open, two-way, regular feedback</td>
+                    <td>Poor, unclear, one-directional</td>
+                </tr>
+                <tr>
+                    <td>Work Environment</td>
+                    <td>Flexible, supportive, inclusive</td>
+                    <td>Rigid, stressful, exclusive</td>
+                </tr>
+                <tr>
+                    <td>Employee Morale</td>
+                    <td>High engagement, low turnover</td>
+                    <td>Low motivation, high turnover</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Slide 5: Productivity Impact -->
+    <div class="slide">
+        <div class="title">Productivity Impact</div>
+        <div class="content">
+            <div class="box">
+                <h3>Positive Culture Results:</h3>
+                <ul>
+                    <li>21% higher productivity in engaged teams</li>
+                    <li>41% lower absenteeism in positive environments</li>
+                    <li>59% less turnover in companies with strong cultures</li>
+                    <li>28% reduction in quality defects</li>
+                </ul>
+            </div>
+            <div class="box">
+                <h3>Key Success Factors:</h3>
+                <ul>
+                    <li>Regular Employee Recognition Programs</li>
+                    <li>Continuous Professional Development</li>
+                    <li>Work-Life Balance Initiatives</li>
+                    <li>Clear Career Advancement Paths</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Recommendations -->
+    <div class="slide">
+        <div class="title">Recommendations for Improvement</div>
+        <div class="content">
+            <div class="box">
+                <h3>Strategic Initiatives:</h3>
+                <ol>
+                    <li>Implement Regular Employee Feedback Systems</li>
+                    <li>Develop Leadership Training Programs</li>
+                    <li>Create Clear Communication Channels</li>
+                    <li>Establish Recognition and Reward Systems</li>
+                    <li>Foster Work-Life Balance Policies</li>
+                </ol>
+            </div>
+            <div class="box">
+                <h3>Expected Outcomes:</h3>
+                <ul>
+                    <li>Improved Employee Satisfaction and Engagement</li>
+                    <li>Increased Productivity and Innovation</li>
+                    <li>Enhanced Team Collaboration</li>
+                    <li>Reduced Turnover and Associated Costs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thank You Slide -->
+    <div class="slide">
+        <div class="thank-you">Thank You!</div>
+        <div class="thank-you-subtitle">Website made by Aniruddha Bhide</div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+        <button onclick="changeSlide(-1)">Previous</button>
+        <button onclick="changeSlide(1)" id="nextBtn">Next</button>
+    </div>
+
+    <div class="slide-counter" id="slideCounter"></div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const nextBtn = document.getElementById('nextBtn');
+        const slideCounter = document.getElementById('slideCounter');
+
+        function updateSlideCounter() {
+            slideCounter.textContent = `Slide ${currentSlide + 1} / ${slides.length}`;
+        }
+
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            
+            if (currentSlide === slides.length - 1) {
+                nextBtn.disabled = true;
+            } else {
+                nextBtn.disabled = false;
+            }
+            
+            updateSlideCounter();
+        }
+
+        // Initialize slide counter
+        updateSlideCounter();
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+                changeSlide(1);
+            } else if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            }
+        });
+    </script>
+</body>
+</html>
